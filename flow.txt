@@ -1,0 +1,28 @@
+// userModel 
+    fullname - string
+    email - string
+    password - string
+    cart - []
+    isadmin - boolean
+    orders - []
+    contact - number
+    address - string
+    picture - string / image / using multer & DB
+
+
+// productModel
+
+   image - image
+   name - string
+   price - number
+   discount - number
+   bgcolor - 
+   panelcolor - 
+   textcolor - 
+
+// ownerModel -> kisi dikan se aayega
+
+    
+
+
+
