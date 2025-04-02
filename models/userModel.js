@@ -23,9 +23,6 @@ const userSchema = new mongoose.Schema({
       },
     ],
   },
-  isAdmin: {
-    type: Boolean,
-  },
   orders: {
     type: [
       {
@@ -48,4 +45,5 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-export const user = mongoose.model("user", userSchema);
+const userModel = mongoose.model("user", userSchema);
+export { userModel };

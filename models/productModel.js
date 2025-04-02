@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
   image: {
-    type: String,
+    type: Buffer,
     required: true,
   },
   name: {
@@ -30,5 +30,5 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
 });
-const product = mongoose.model("product", productSchema);
-export { product };
+const productModel = mongoose.model("product", productSchema);
+export { productModel };

@@ -32,4 +32,4 @@ const ownerSchema = new mongoose.Schema({
   },
 });
 
-export const owner = mongoose.model("owner", ownerSchema);
+export const ownerModel = mongoose.model("owner", ownerSchema);
