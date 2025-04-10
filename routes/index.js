@@ -4,6 +4,7 @@ import flash from "connect-flash";
 import expressSession from "express-session";
 import { isLoggedIn } from "../middlewares/isLoggedIn.js";
 import { productModel } from "../models/productModel.js";
+import { userModel } from "../models/userModel.js";
 
 router.use(
   expressSession({
@@ -21,7 +22,18 @@ router.get("/", (req, res) => {
 
 router.get("/shop", isLoggedIn, async (req, res) => {
   const products = await productModel.find();
-  res.render("shop", { products });
+  let success = req.flash("success");
+  res.render("shop", { products, success });
 });
+
+router.get("/addtocart/:id", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ _id: req.user.id });
+  user.cart.push(req.params.id);
+  await user.save();
+  req.flash("success", "Product is added to cart");
+  res.redirect("/shop");
+});
+
+
 
 export default router;

@@ -32,5 +32,11 @@ router.get("/", (req, res) => {
 router.post("/register", createUser);
 router.post("/login", loginUser);
 router.get("/logout", isLoggedIn, logoutUser);
+router.get("/cart", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ _id: req.user.id }).populate("cart");
+  let allProduct = user.cart;
+  console.log(allProduct);
+  res.render("cart", { allProduct });
+});
 
 export default router;

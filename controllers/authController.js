@@ -49,10 +49,9 @@ let loginUser = async (req, res) => {
       let products = await productModel.find();
       let token = generateToken(user);
       res.cookie("token", token);
-      return res.render("shop", { products });
+      return res.render("shop", { products, success: [] });
     } else {
       req.flash("err", "Jaldi password");
-      // console.log(req.flash("err")); // ye bakchodi hai , re initialise ho ja rha hai "" - empty string se
       return res.redirect("/");
     }
   } catch (error) {

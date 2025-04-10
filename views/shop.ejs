@@ -7,9 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <h3 class="mb-2 mt-2 ml-2 text-3xl font-semibold justify-self-start">
-      Scatch
-    </h3>
+    <% if(success.length>0){ %>
+    <div
+      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500"
+    >
+      <span class="inline-block mt-1 mb-1 text-white"> <%= success %> </span>
+    </div>
+    <% } %>
+    <div class="mt-3 mx-3"><%- include('./partials/header') %></div>
     <div class="w-full h-screen flex items-start px-20 py-20">
       <div class="w-[25%] flex h-screen flex-col items-start">
         <div class="flex items-center gap-2">
@@ -34,7 +39,7 @@
       </div>
       <div class="w-[79%] flex flex-col gap-5 h-screen">
         <div class="flex items-start gap-5">
-          <% products.forEach(function(product){ %> <%=console.log(product)%>
+          <% products.forEach(function(product){ %>
           <div class="w-70">
             <div
               class="w-full h-52 flex items-center justify-center bg-[#<%= product.bgcolor %>] rounded-t-md"
@@ -52,13 +57,13 @@
                 <h3><%= product.name %></h3>
                 <div class="flex gap-2">
                   <h4>₹ <%= product.price %></h4>
-                  <br>
+                  <br />
                   <h3>| Discount <%= product.discount %>%</h3>
                 </div>
               </div>
               <a
                 class="w-7 h-7 flex items-center justify-center rounded-full bg-orange-200 p-1"
-                href=""
+                href="/addtocart/<%=product._id%>"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 512">
                   <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->

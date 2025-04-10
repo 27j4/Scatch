@@ -39,5 +39,5 @@ app.use("/", indexRouter);
 app.listen(port);
 
 /* 
-    connect-flash , express-session
+    connect-flash , express-session // This is for the flash message which comes on to top when some action is perfomed -> Like "Product is addded to Cart"
 */
